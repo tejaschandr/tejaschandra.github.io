@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GitHub Repositories</title>
+</head>
+<body>
+  <h1>My GitHub Repositories</h1>
+  <ul id="repo-list"></ul>
+
+  <script>
+    fetch('https://api.github.com/users/tejaschandr/repos')
+      .then(response => response.json())
+      .then(data => {
+        const repoList = document.getElementById('repo-list');
+        data.forEach(repo => {
+          const listItem = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = repo.html_url;
+          link.textContent = repo.name;
+          listItem.appendChild(link);
+          repoList.appendChild(listItem);
+        });
+      });
+  </script>
+</body>
+</html>
