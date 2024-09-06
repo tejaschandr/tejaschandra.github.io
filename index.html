@@ -3,22 +3,213 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GitHub Repositories</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Tejas Chandra - GitHub Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --text-color: #333;
+      --bg-color: #f4f4f4;
+      --card-bg: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    .profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      color: #fff;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .repositories {
+      padding: 40px 0;
+    }
+
+    .repositories h2 {
+      font-size: 2rem;
+      color: var(--secondary-color);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #repo-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      list-style-type: none;
+    }
+
+    .repo-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .repo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .repo-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .repo-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .repo-card .repo-stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .repo-card .repo-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .repo-card .repo-link:hover {
+      background-color: var(--secondary-color);
+    }
+
+    footer {
+      background-color: var(--secondary-color);
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .profile-image {
+        width: 120px;
+        height: 120px;
+      }
+
+      #repo-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Welcome to My GitHub Portfolio</h1>
-    <p>Explore my projects and repositories!</p>
+    <div class="container">
+      <h1>Tejas Chandr</h1>
+      <p>Welcome to my GitHub Portfolio</p>
+      <div class="profile">
+        <img src="/api/placeholder/150/150" alt="Tejas Chandr" class="profile-image">
+      </div>
+      <div class="social-links">
+        <a href="https://github.com/tejaschandr" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/tejaschandra" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
   </header>
 
   <section class="repositories">
-    <h2>My GitHub Repositories</h2>
-    <ul id="repo-list"></ul>
+    <div class="container">
+      <h2>My GitHub Repositories</h2>
+      <ul id="repo-list"></ul>
+    </div>
   </section>
 
   <footer>
-    <p>Powered by <a href="https://github.com/tejaschandr">GitHub</a> | &copy; 2024 Tejas Chandr</p>
+    <div class="container">
+    </div>
   </footer>
 
   <script>
@@ -28,10 +219,16 @@
         const repoList = document.getElementById('repo-list');
         data.forEach(repo => {
           const listItem = document.createElement('li');
-          const link = document.createElement('a');
-          link.href = repo.html_url;
-          link.textContent = repo.name;
-          listItem.appendChild(link);
+          listItem.className = 'repo-card';
+          listItem.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description || 'No description available'}</p>
+            <div class="repo-stats">
+              <span><i class="fas fa-star"></i> ${repo.stargazers_count}</span>
+              <span><i class="fas fa-code-branch"></i> ${repo.forks_count}</span>
+            </div>
+            <a href="${repo.html_url}" class="repo-link" target="_blank">View Repository</a>
+          `;
           repoList.appendChild(listItem);
         });
       });
