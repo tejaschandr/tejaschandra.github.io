@@ -188,8 +188,8 @@
 <body>
   <header>
     <div class="container">
-      <h1>Tejas Chandr</h1>
-      <p>Welcome to my GitHub Portfolio</p>
+      <h1>Tejas Chandra</h1>
+      <p>GitHub Portfolio</p>
       <div class="profile">
         <img src="/api/placeholder/150/150" alt="Tejas Chandr" class="profile-image">
       </div>
@@ -213,11 +213,12 @@
   </footer>
 
   <script>
-    fetch('https://api.github.com/users/tejaschandr/repos')
-      .then(response => response.json())
-      .then(data => {
-        const repoList = document.getElementById('repo-list');
-        data.forEach(repo => {
+  fetch('https://api.github.com/users/tejaschandr/repos')
+    .then(response => response.json())
+    .then(data => {
+      const repoList = document.getElementById('repo-list');
+      data.forEach(repo => {
+        if (repo.name !== 'tejaschandr.github.io') {
           const listItem = document.createElement('li');
           listItem.className = 'repo-card';
           listItem.innerHTML = `
@@ -230,8 +231,9 @@
             <a href="${repo.html_url}" class="repo-link" target="_blank">View Repository</a>
           `;
           repoList.appendChild(listItem);
-        });
+        }
       });
-  </script>
+    });
+</script>
 </body>
 </html>
