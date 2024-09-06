@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tejas Chandra - GitHub Portfolio</title>
+  <title>Tejas Chandr - GitHub Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <style>
     :root {
@@ -188,14 +188,15 @@
 <body>
   <header>
     <div class="container">
-      <h1>Tejas Chandra</h1>
-      <p>GitHub Portfolio</p>
+      <h1>Tejas Chandr</h1>
+      <p>Welcome to my GitHub Portfolio</p>
       <div class="profile">
         <img src="/api/placeholder/150/150" alt="Tejas Chandr" class="profile-image">
       </div>
       <div class="social-links">
         <a href="https://github.com/tejaschandr" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/tejaschandra" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://linkedin.com/in/tejaschandr" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/tejaschandr" target="_blank"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </header>
@@ -209,16 +210,16 @@
 
   <footer>
     <div class="container">
+      <p>Powered by <a href="https://github.com/tejaschandr">GitHub</a> | &copy; 2024 Tejas Chandr</p>
     </div>
   </footer>
 
   <script>
-  fetch('https://api.github.com/users/tejaschandr/repos')
-    .then(response => response.json())
-    .then(data => {
-      const repoList = document.getElementById('repo-list');
-      data.forEach(repo => {
-        if (repo.name !== 'tejaschandr.github.io') {
+    fetch('https://api.github.com/users/tejaschandr/repos')
+      .then(response => response.json())
+      .then(data => {
+        const repoList = document.getElementById('repo-list');
+        data.forEach(repo => {
           const listItem = document.createElement('li');
           listItem.className = 'repo-card';
           listItem.innerHTML = `
@@ -231,9 +232,8 @@
             <a href="${repo.html_url}" class="repo-link" target="_blank">View Repository</a>
           `;
           repoList.appendChild(listItem);
-        }
+        });
       });
-    });
-</script>
+  </script>
 </body>
 </html>
