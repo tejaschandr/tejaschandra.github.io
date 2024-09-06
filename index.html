@@ -39,14 +39,18 @@
     line-height: 1.6;
   }
 
-  .header-image {
-    width: 85%;
-    height: 300px;
-    object-fit: cover;
+.header-image {
+    width: auto;
+    max-width: 85%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
     object-position: center;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(103, 70, 54, 0.1);
-  }
+    display: block;
+    margin: 0 auto 20px auto;
+}
 
   section {
     min-height: 100vh;
