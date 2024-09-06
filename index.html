@@ -2,15 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tejas's Portfolio</title>
+
+    <!-- box icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- custom css -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <header>
-      <h1>Tejas Chandra</h1>
-      <nav>
-        <a href="#home">Home</a>
+    <!-- header design -->
+    <header class="header">
+      <a href="#" class="logo">Portfolio</a>
+
+      <i class='bx bx-menu' id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -18,45 +29,79 @@
       </nav>
     </header>
 
-    <main>
-      <section id="home">
-        <h2>Welcome to my Portfolio</h2>
-        <p>I'm a Computer Science Student at UNC Chapel Hill</p>
-      </section>
+    <!-- home section design -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Hello, My Name Is</h3>
+        <h1>Tejas Chandra</h1>
+        <h3>And I'm a Computer Science Student</h3>
+        <p>Welcome to my personal Portfolio!</p>
+      </div>
+    </section>
 
-      <section id="about">
-        <h2>About Me</h2>
-        <p>I am a dedicated Computer Science student set to graduate in 2026. My passion lies in leveraging technology to create innovative solutions, particularly in the fields of finance and software development.</p>
-      </section>
+    <!-- about section design -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+         <p>I am Tejas Chandra, a dedicated Computer Science student at UNC Chapel Hill, 
+          set to graduate in 2026. With a strong foundation in data structures, algorithms, 
+          and quantitative analysis, I've applied my skills in various roles, including as a 
+          Quantitative Analyst Intern at Bank of America and as part of the Carolina Investment Group. 
+          My passion lies in leveraging technology to create innovative solutions, particularly in 
+          the fields of finance and software development.</p>
+      </div>
+    </section>
 
-      <section id="skills">
-        <h2>My Skills</h2>
-        <ul>
-          <li>Python</li>
-          <li>Java</li>
-          <li>C++</li>
-          <li>JavaScript</li>
-          <li>Data Structures & Algorithms</li>
-        </ul>
-      </section>
+    <!-- skills section design -->
+    <section class="skills" id="skills">
+      <div class="skills-content">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <p><strong>Languages:</strong> Python, Java, C++, JavaScript, TypeScript, C, Assembly, Elixir, Go, Erlang</p>
+        <p><strong>Technologies:</strong> OpenCV, SciKit, Node.js, React, Next.js, Flask, CSS, Angular, PostgreSQL, BitBucket</p>
+      </div>
+    </section>
 
-      <section id="projects">
-        <h2>My Projects</h2>
-        <ul>
-          <li>Google Ad Classifier</li>
-          <li>Chapel Hill Rent Predictor</li>
-          <li>LendingClub Investment Analyzer</li>
-        </ul>
-      </section>
+    <!-- projects section design -->
+    <section class="projects" id="projects">
+      <h2 class="heading">My <span>Projects</span></h2>
+      <ul id="repo-list" class="projects-container"></ul>
+    </section>    
 
-      <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: tejas.chandramouli@outlook.com</p>
-      </section>
-    </main>
-
-    <footer>
-      <p>&copy; 2024 Tejas Chandra</p>
-    </footer>
+    <!-- contact section design -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me!</span></h2>
+      <h3>Name:</h3>
+      <h1>Tejas Chandra</h1>
+      <h3>Socials:</h3>
+      <div class="social-media">
+        <a href="https://www.linkedin.com/in/tejaschandra" target="_blank"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/tejaschandr" target="_blank"><i class='bx bxl-github'></i></a>
+        <a href="mailto:tejas.chandramouli@outlook.com" target="_blank"><i class='bx bx-envelope'></i></a>
+      </div>
+    </section>
+    
+    <script>
+      fetch('https://api.github.com/users/tejaschandr/repos')
+        .then(response => response.json())
+        .then(data => {
+          const repoList = document.getElementById('repo-list');
+          data.forEach(repo => {
+            if (repo.name !== 'tejaschandr.github.io') {
+              const listItem = document.createElement('li');
+              listItem.className = 'repo-card';
+              listItem.innerHTML = `
+                <h3>${repo.name}</h3>
+                <p>${repo.description || 'No description available'}</p>
+                <div class="repo-stats">
+                  <span><i class="bx bx-star"></i> ${repo.stargazers_count}</span>
+                  <span><i class="bx bx-git-repo-forked"></i> ${repo.forks_count}</span>
+                </div>
+                <a href="${repo.html_url}" class="repo-link" target="_blank">View Repository</a>
+              `;
+              repoList.appendChild(listItem);
+            }
+          });
+        });
+    </script>
   </body>
 </html>
