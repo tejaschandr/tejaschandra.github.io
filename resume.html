@@ -7,7 +7,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
-
         :root {
             --bg-color: #FFF8E8;
             --second-bg-color: #F7EED3;
@@ -15,13 +14,11 @@
             --accent-color: #AAB396;
             --main-color: #674636;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Crimson Text', serif;
             background: var(--bg-color);
@@ -29,7 +26,6 @@
             line-height: 1.6;
             padding: 20px;
         }
-
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -38,38 +34,31 @@
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(103, 70, 54, 0.1);
         }
-
         h1, h2, h3 {
             font-family: 'Playfair Display', serif;
             color: var(--main-color);
         }
-
         h1 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
-
         h2 {
             font-size: 1.8rem;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 10px;
             margin-top: 30px;
         }
-
         h3 {
             font-size: 1.4rem;
             margin-top: 20px;
         }
-
         p, ul {
             margin-bottom: 15px;
         }
-
         ul {
             padding-left: 20px;
         }
-
         .button {
             display: inline-block;
             margin-top: 20px;
@@ -80,7 +69,6 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-
         .button:hover {
             background-color: var(--accent-color);
         }
@@ -89,8 +77,7 @@
 <body>
     <div class="container">
         <h1>Tejas Chandra - Resume</h1>
-
-        <a href="resume.pdf" class="button" download><i class='bx bxs-download'></i> Download PDF</a>
+        <a href="#" class="button" id="downloadPdf"><i class='bx bxs-download'></i> Download PDF</a>
         <a href="index.html" class="button"><i class='bx bx-arrow-back'></i> Back to Portfolio</a>
 
         <h2>Education</h2>
@@ -107,8 +94,56 @@
             <li>Implemented SDLC methodologies, including unit and regression testing for each algorithm and managing version control via Bitbucket.</li>
         </ul>
 
-        <!-- Add more sections for other experiences, projects, and skills -->
+        <h3>Carolina Investment Group - Quantitative Analyst</h3>
+        <p>Aug 2022 - Dec 2024 | Chapel Hill, NC</p>
+        <ul>
+            <li>Collaborated with a team of 4 developers to create Python algorithms for a student-run hedge fund, leading to a 12% increase in portfolio performance.</li>
+            <li>Conducted market analysis using SciKit Learn techniques such as Covariance Estimation, k-clustering, and Manifold Learning to identify profitable investment opportunities.</li>
+        </ul>
 
+        <h3>Compass Center - Software Developer</h3>
+        <p>Sep 2023 - May 2024 | Chapel Hill, NC</p>
+        <ul>
+            <li>Led the development of a web application using Next.js, Node.js, TailwindCSS, and Firebase with a team of 6 developers.</li>
+            <li>Managed backend operations with PostgreSQL, implementing CRUD functionality to optimize customer data storage, improving client data management efficiency.</li>
+        </ul>
+
+        <h2>Skills</h2>
+        <p><strong>Languages:</strong> Python, Java, C++, JavaScript, TypeScript, C, Assembly, Elixir, Go, Erlang</p>
+        <p><strong>Technologies:</strong> OpenCV, SciKit, Node.js, React, Next.js, Flask, CSS, Angular, PostgreSQL, BitBucket</p>
+        <p><strong>Frameworks and Skillsets:</strong> SDLC, Agile Methodology, Sprint Development, Parallel Computing</p>
+
+        <h2>Projects</h2>
+        <h3>COMP 488 - Data Science Project</h3>
+        <ul>
+            <li>Developed a Google Ad Classifier using 27,000+ web-scraped ads, labeled with GPT-4 API; trained model with RandomForest and BERT achieving 87% accuracy; hosted on HuggingFace</li>
+            <li>Applied Linear Regression, t-SNE clustering, and PCA using SciKit and PyTorch to predict rent prices in Chapel Hill with 90% accuracy using web-scrapped Zillow data</li>
+        </ul>
+
+        <h3>EY Open Science Data Challenge</h3>
+        <ul>
+            <li>Developed predictive models for rice crop yield against vegetation growth patterns using Microsoft's Planetary Computer Sentinel-1's RTC dataset.</li>
+            <li>Visualized data trends with Altair and MATLAB, contributing to a comprehensive agricultural report.</li>
+        </ul>
     </div>
+
+    <script>
+        document.getElementById('downloadPdf').addEventListener('click', function(e) {
+            e.preventDefault();
+            fetch('serve-pdf.php')
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'TejasChandraResume.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(() => alert('Error downloading the PDF. Please try again.'));
+        });
+    </script>
 </body>
 </html>
