@@ -4,88 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tejas Chandra - Resume</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:wght@400;600&display=swap');
+
+        :root {
+            --bg-color: #FFF8E8;
+            --second-bg-color: #F7EED3;
+            --text-color: #674636;
+            --accent-color: #AAB396;
+            --main-color: #674636;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Crimson Text', serif;
+            background: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-            color: #674636;
-            background-color: #FFF8E8;
             padding: 20px;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #F7EED3;
+            background-color: var(--second-bg-color);
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(103, 70, 54, 0.1);
         }
-        h1, h2 {
+
+        h1, h2, h3 {
             font-family: 'Playfair Display', serif;
-            color: #674636;
+            color: var(--main-color);
         }
+
         h1 {
             text-align: center;
-            margin-bottom: 30px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
+
         h2 {
-            border-bottom: 2px solid #AAB396;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--accent-color);
             padding-bottom: 10px;
             margin-top: 30px;
         }
-        pre {
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
-            border-left: 3px solid #f36d33;
-            color: #666;
-            page-break-inside: avoid;
-            font-family: monospace;
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 1.6em;
-            max-width: 100%;
-            overflow: auto;
-            padding: 1em 1.5em;
-            display: block;
-            word-wrap: break-word;
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 20px;
         }
+
+        p, ul {
+            margin-bottom: 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
         .button {
             display: inline-block;
+            margin-top: 20px;
             padding: 10px 20px;
-            background-color: #674636;
-            color: #FFF8E8;
+            background-color: var(--main-color);
+            color: var(--bg-color);
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
+
         .button:hover {
-            background-color: #AAB396;
+            background-color: var(--accent-color);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Tejas Chandra - Resume</h1>
-        
-        <h2>LaTeX Source Code</h2>
-        <pre id="latex-code">
-            <!-- LaTeX code will be loaded here -->
-        </pre>
-        
-        <h2>Download Resume</h2>
-        <a href="resume.pdf" class="button" target="_blank">Download PDF</a>
-        
-        <a href="index.html" class="button">Back to Portfolio</a>
-    </div>
 
-    <script>
-        // Fetch LaTeX code from the same repository
-        fetch('resume.tex')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('latex-code').textContent = data;
-            })
-            .catch(error => console.error('Error:', error));
-    </script>
+        <a href="resume.pdf" class="button" download><i class='bx bxs-download'></i> Download PDF</a>
+        <a href="index.html" class="button"><i class='bx bx-arrow-back'></i> Back to Portfolio</a>
+
+        <h2>Education</h2>
+        <p><strong>UNC Chapel Hill</strong> - Chapel Hill, NC</p>
+        <p>Bachelor of Science in Computer Science | GPA: 3.93/4.00 | Expected Graduation: 2026</p>
+        <p>Activities: UNC Product Management Team, Carolina Investment Group, UNC Computer Science + Social Good, Dean's List</p>
+
+        <h2>Experience</h2>
+        <h3>Bank of America - Quantitative Analyst Intern</h3>
+        <p>May 2024 - Aug 2024 | Chapel Hill, NC</p>
+        <ul>
+            <li>Automated visualizations and GAP Analysis tracking team adoption of SDLC processes using Jupyter and Flask, resulting in an 80% increase in process efficiency over manual analysis.</li>
+            <li>Developed algorithms to process, document, and convert Alteryx JSON5 workflows using Alteryx API outputs into Python scripts for over 3,800 Enterprise Tests.</li>
+            <li>Implemented SDLC methodologies, including unit and regression testing for each algorithm and managing version control via Bitbucket.</li>
+        </ul>
+
+        <!-- Add more sections for other experiences, projects, and skills -->
+
+    </div>
 </body>
 </html>
