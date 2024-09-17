@@ -75,13 +75,12 @@
         <h2>Download Resume</h2>
         <a href="resume.pdf" class="button" target="_blank">Download PDF</a>
         
-        <h2>Back to Portfolio</h2>
         <a href="index.html" class="button">Back to Portfolio</a>
     </div>
 
     <script>
-        // Fetch LaTeX code from GitHub
-        fetch('https://raw.githubusercontent.com/tejaschandr/resume/main/resume.tex')
+        // Fetch LaTeX code from the same repository
+        fetch('resume.tex')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('latex-code').textContent = data;
