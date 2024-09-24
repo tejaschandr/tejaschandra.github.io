@@ -159,31 +159,39 @@
     list-style-type: none;
   }
 
-  .repo-card {
-    background: var(--second-bg-color);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(103, 70, 54, 0.1);
-    transition: 0.5s ease;
-  }
+
 
   .repo-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(103, 70, 54, 0.2);
   }
 
-  .repo-card h3 {
+.repo-card {
+    background: var(--second-bg-color);
+    padding: 1.5rem; /* Adjusted padding */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(103, 70, 54, 0.1);
+    transition: 0.5s ease;
+    font-size: 1.3rem; /* Adjusted font size */
+}
+
+.repo-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 2rem; /* Adjusted heading size */
     margin-bottom: 1rem;
     color: var(--main-color);
     letter-spacing: 1px;
-  }
+}
 
-  .repo-card p {
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
+.repo-card p {
+    font-size: 1.2rem; /* Adjusted description size */
+    margin-bottom: 1rem;
     color: var(--text-color);
+}
+      
+  .repo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(103, 70, 54, 0.2);
   }
 
   .repo-stats {
